@@ -48,3 +48,13 @@ class CarShop(models.Model):
     class Meta:
         verbose_name = 'автомобиль'
         verbose_name_plural = 'автомобили'
+
+
+class ReviewCars(models.Model):
+    car_review = models.ForeignKey(CarShop, on_delete=models.CASCADE,
+                                   related_name='review_cars')
+    text = models.TextField(verbose_name='Напишите комент')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.car_review}-{self.text}'

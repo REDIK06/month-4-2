@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<center>
+  {% for i in book_store %}
+  <h1>{{i.title}}</h1>
+  <p>{{i.description}}</p>
+  <p>{{i.price}}</p>
+  <p>Дата создания - {{i.created_at}}</p>
+  <P>Дата обновление - {{i.updated_at}}</P>
+  <hr>
+  <hr>
+  {% endfor %}
+</center>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Shop</title>
+</head>
+<body>
+<h1>Список машин</h1>
+<button><a href="/create_car/">Добавить</a></button>
+
+<ul>
+    {% for i in car %}
+      <li>
+        <a href="/car_detail/{{i.id}}/"><img src="{{i.image}}" alt="" width="680" height="420"></a>
+        <h2>Марка: {{i.title}}</h2>
+        <p>Год: {{i.year}}</p>
+        <p>Цена: {{i.price}}</p>
+      </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
