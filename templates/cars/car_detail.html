@@ -1,40 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<button><a href="/car_detail/{{car_id.id}}/delete/">Удалить</a></button>
-<button><a href="/car_detail/{{car_id.id}}/update/">Изменить</a></button>
-<h1>Детальная информация об: <br>{{car_id.title}}</h1>
-<p><em>{{car_id.description}}</em></p>
-<img src="{{car_id.image}}" alt="" width="680" height="420">
-<p>Год: {{car_id.year}}</p>
-<p>Двигатель: {{car_id.engine}}</p>
-<p>Сторона руля: {{car_id.steering_wheel}}</p>
-<p>Разгон до 100км/ч: {{car_id.acceleration}}с</p>
-<p>Привод: {{car_id.drive_unit}}</p>
-<p>Цена: {{car_id.price}}</p>
-<p>Скидка: {{car_id.discount}}</p>
-{% if car_id.gift %}
-        <p>В подарок: {{car_id.gift}}</p>
-    {% else %}
-        <p>В подарок: Подарок не предоставляется</p>
-    {% endif %}
-<p>Дата добавления: {{car_id.created_at}}</p>
-<p>Дата обновления: {{car_id.updated_at}}</p>
+{% include 'cars/header.html' %}
+<br><br><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <button class="btn btn-danger mr-2"><a href="/car_detail/{{car_id.id}}/delete/" style="color: white; text-decoration: none;">Удалить</a></button>
+            <button class="btn btn-primary mr-2"><a href="/car_detail/{{car_id.id}}/update/" style="color: white; text-decoration: none;">Изменить</a></button>
+            <h1>Детальная информация об: <br>{{car_id.title}}</h1>
+            <p><em>{{car_id.description}}</em></p>
+            <img src="{{car_id.image}}" alt="" width="680" height="420">
+            <p>Год: {{car_id.year}}</p>
+            <p>Двигатель: {{car_id.engine}}</p>
+            <p>Сторона руля: {{car_id.steering_wheel}}</p>
+            <p>Разгон до 100км/ч: {{car_id.acceleration}}с</p>
+            <p>Привод: {{car_id.drive_unit}}</p>
+            <p>Цена: {{car_id.price}}</p>
+            <p>Скидка: {{car_id.discount}}</p>
+            {% if car_id.gift %}
+                <p>В подарок: {{car_id.gift}}</p>
+            {% else %}
+                <p>В подарок: Подарок не предоставляется</p>
+            {% endif %}
+            <p>Дата добавления: {{car_id.created_at}}</p>
+            <p>Дата обновления: {{car_id.updated_at}}</p>
 
-<h2>Добавить комментарий</h2>
-<button><a href="/car_detail/{{car_id.id}}/add_comment/">Добавить</a></button>
-<h2>Комментарии</h2>
-<ul>
-    {% for i in car_id.review_cars.all %}
-        <li>
-            <h3>{{ i.text }}</h3>
-            <p>{{ i.created_at }}</p>
-        </li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+            <h2>Добавить комментарий</h2>
+            <button class="btn btn-success"><a href="/car_detail/{{car_id.id}}/add_comment/" style="color: white; text-decoration: none;">Добавить</a></button>
+
+            <h2>Комментарии</h2>
+            <ul>
+                {% for i in car_id.review_cars.all %}
+                    <li>
+                        <h3>{{ i.text }}</h3>
+                        <p>{{ i.created_at }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% include 'cars/footer.html' %}

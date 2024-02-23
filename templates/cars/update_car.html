@@ -1,14 +1,18 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/update_car.css'%}">
 </head>
 <body>
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Изменить</button>
+<form class="ui-form" method="POST" enctype="multipart/form-data">
+    <h3>Изменить данные</h3>
+        {% csrf_token %}
+        {{form.as_p}}
+    <p><input type="submit" value="Изменить"></p>
 </form>
 </body>
 </html>
