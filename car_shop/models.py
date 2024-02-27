@@ -51,10 +51,19 @@ class CarShop(models.Model):
 
 
 class ReviewCars(models.Model):
-    car_review = models.ForeignKey(CarShop, on_delete=models.CASCADE,
-                                   related_name='review_cars')
-    text = models.TextField(verbose_name='Напишите комент')
+    car_review = models.ForeignKey(CarShop, on_delete=models.CASCADE, related_name='review_cars')
+    text = models.TextField(verbose_name='Напишите коммент')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.car_review}-{self.text}'
+
+
+class Comment(models.Model):
+    review = models.ForeignKey(ReviewCars, on_delete=models.CASCADE, related_name='comments')
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Comment by {self.review.text} - {self.text}'
+

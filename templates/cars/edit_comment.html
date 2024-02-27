@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="ui-form" method="POST" enctype="multipart/form-data">
+    <h3>Изменить данные</h3>
+        {% csrf_token %}
+        {{form.as_p}}
+    <p><input type="submit" value="Изменить"></p>
+</form>
+</body>
+</html>
