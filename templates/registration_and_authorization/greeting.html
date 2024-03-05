@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Привет, добро пожаловать!!!</h1>
+<ul>
+    {% for i in greet %}
+    <li>
+        <h2>{{ i.username }}</h2>
+        <p>{{ i.email }}</p>
+        <p>{{ i.first_name }}</p>
+        <p>{{ i.phone_number }}</p>
+        <p>{{ i.get_gender_display }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<form action="{% url 'users:login' %}" method="POST">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
+
+</body>
+</html>
