@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #008080;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+        h2 {
+            color: #7FFFD4;
+        }
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Мужская одежда</h1>
+    <ul>
+        {% for i in women_cloth %}
+            <li>
+                <h2>{{i.title}}</h2>
+                <p>{{i.price}}</p>
+
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Men's Clothes</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <h1>Мужская одежда</h1>-->
+<!--    <ul>-->
+<!--        {% for cloth in clothes %}-->
+<!--            <li>{{ cloth.title }} - {{ cloth.description }} - {{ cloth.price }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</body>-->
+<!--</html>-->
